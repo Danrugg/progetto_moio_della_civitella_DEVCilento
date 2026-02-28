@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storia del Paese - Il Vecchio Mulino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <h2>Il Vecchio Mulino</h2>
+            <p>Alza il volume o metti le cuffie per un'esperienza immersiva.</p>
+            <button id="enterBtn" class="enter-btn">Entra nel Mulino</button>
+        </div>
+    </div>
+    
+    <div class="water-background"></div>
+
+    <audio id="waterSound" loop>
+        <source src="audio/alex_jauk-water-flow-sound-200050.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="header-section">
+        <div class="slider-container" id="imageSlider">
+            <img src="immagini/pellare_pietro_marino.jpg" alt="Foto storica 1" class="hero-image active">
+            <img src="immagini/pellare_strada_casa.jpeg" alt="Foto storica 2" class="hero-image">
+            <img src="immagini/pellare_pietro_marino.jpg" alt="Foto storica 3" class="hero-image">
+        </div>
+
+        <button class="nav-btn prev-btn" onclick="cambiaFoto(-1)">&#10094;&#10094;</button> 
+        <button class="nav-btn next-btn" onclick="cambiaFoto(1)">&#10095;&#10095;</button> 
+        
+        <div class="title-overlay">
+            <h1>Il Vecchio Mulino</h1>
+            <p>Tocca le frecce per scorrere ➔</p>
+        </div>
+    </header>   
+
+    <main class="content-section">
+        <div class="audio-container">
+            <div class="audio-card">
+                <span class="audio-label">🎧 Storia in Italiano</span>
+                <audio class="real-audio" src="audio/pista_audio_donna_prova.mp3"></audio>
+                <div class="custom-player">
+                    <button class="play-btn">▶</button>
+                    <div class="progress-wrapper">
+                        <div class="time-display">
+                            <span class="current-time">0:00</span>
+                            <span class="duration-time">0:00</span>
+                        </div>
+                        <input type="range" class="progress-bar" value="0" min="0" max="100">
+                    </div>
+                    <button class="speed-btn">1x</button>
+                </div>
+            </div>
+
+            <div class="audio-card">
+                <span class="audio-label">🇬🇧 Racconto in Inglese</span>
+                <audio class="real-audio" src="audio/pista_audio_uomo_prova.mp3"></audio>
+                <div class="custom-player">
+                    <button class="play-btn">▶</button>
+                    <div class="progress-wrapper">
+                        <div class="time-display">
+                            <span class="current-time">0:00</span>
+                            <span class="duration-time">0:00</span>
+                        </div>
+                        <input type="range" class="progress-bar" value="0" min="0" max="100">
+                    </div>
+                    <button class="speed-btn">1x</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-container">
+            <p>In questo luogo sorgeva l'antico mulino del paese, il cuore pulsante della nostra comunità durante gli anni difficili del dopoguerra.</p>
+            <p>Gli abitanti si riunivano qui non solo per macinare il grano, ma per condividere notizie, storie e speranze per il futuro.</p>
+        </div>
+
+        <footer style="text-align: center; margin-top: 40px; padding-bottom: 20px; opacity: 0.6;">
+            <p style="font-size: 13px; color: #777;">
+                Sviluppato da <strong>DEVCilento</strong>
+            </p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

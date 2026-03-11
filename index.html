@@ -2,30 +2,36 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Percorso Storico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Percorso Storico QR</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <section id="splash-screen" class="view active">
-        <div class="overlay"></div>
+        <img id="splash-img-arrotondata" src="" alt="Monumento">
         <h1 id="splash-titolo">Caricamento...</h1>
         <button id="btn-entra">ENTRA</button>
     </section>
 
     <section id="content-screen" class="view hidden">
-        <div id="carousel" class="carousel-container"></div>
-        
-        <div class="audio-container">
-            <audio id="audio-player" controls></audio>
-        </div>
-        
-        <article id="storia-testo"></article>
+        <div class="content-overlay"></div>
 
-        <div class="map-container">
-            <h3>Dove sei:</h3>
-            <img id="mappa-img" src="" alt="Mappa della tappa">
+        <div class="scrolling-content">
+            <div id="carousel" class="carousel-container"></div>
+            
+            <div class="audio-container">
+                <audio id="audio-player" controls controlsList="nodownload"></audio>
+            
+
+            <div class="quadro-bianco historia-box">
+                <article id="storia-testo"></article>
+            </div>
+
+            <div class="quadro-bianco map-container">
+                <h3>Dove sei:</h3>
+                <img id="mappa-img" src="" alt="Mappa">
+            </div>
         </div>
     </section>
 

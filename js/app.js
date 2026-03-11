@@ -8,19 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (datiTappa) {
         // --- SPLASH SCREEN ---
         document.getElementById('splash-titolo').innerText = datiTappa.titolo;
-        // MODIFICATO: L'immagine intro va nel tag img, non più nello sfondo
-        document.getElementById('splash-img-arrotondata').src = datiTappa.immagine_intro;
+        
+        // CORREZIONE: Impostiamo di nuovo l'immagine come sfondo della sezione!
+        document.getElementById('splash-screen').style.backgroundImage = `url('${datiTappa.immagine_intro}')`;
 
         // --- CONTENUTI ---
-        
-        // NUOVO: Impostiamo lo sfondo per la seconda schermata
         document.getElementById('content-screen').style.backgroundImage = `url('${datiTappa.immagine_content}')`;
-
         document.getElementById('storia-testo').innerHTML = datiTappa.storia;
         document.getElementById('mappa-img').src = datiTappa.mappa;
         document.getElementById('audio-player').src = datiTappa.audio;
 
         const carousel = document.getElementById('carousel');
+        carousel.innerHTML = ''; // Pulisce eventuali foto vecchie per sicurezza
+        
         datiTappa.immagini.forEach(imgSrc => {
             let imgElement = document.createElement('img');
             imgElement.src = imgSrc;
@@ -31,13 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } else {
         document.getElementById('splash-titolo').innerText = "Tappa non trovata";
-        document.getElementById('btn-entra').style.display = 'none';
+        const btnEntra = document.getElementById('btn-entra');
+        if (btnEntra) btnEntra.style.display = 'none';
     }
 
-    document.getElementById('btn-entra').addEventListener('click', () => {
-        document.getElementById('splash-screen').classList.add('hidden');
-        document.getElementById('content-screen').classList.remove('hidden');
-        window.scrollTo(0, 0);
-    });
-
+    const btnEntra = document.getElementById('btn-entra');
+    if (btnEntra) {
+        btnEntra.addEventListener('click', () => {
+            document.getElementById('splash-screen').classList.add('hidden');
+            document.getElementById('content-screen').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        });
+    }
 });

@@ -144,18 +144,20 @@ body, html {
 #play-btn {
     width: 50px;
     height: 50px;
-    flex: 0 0 50px; /* IL SEGRETO: Obbliga il bottone a non rimpicciolirsi o deformarsi mai */
+    flex: 0 0 50px;
     border-radius: 50%;
     background-color: #333;
     color: white;
     border: none;
-    font-size: 22px; /* Triangolo un po' più grande e visibile */
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     padding: 0; 
+    /* NUOVE RIGHE ANTI-SFONDO E ANTI-SELEZIONE: */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .player-controlli {

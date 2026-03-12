@@ -65,14 +65,17 @@ document.addEventListener("DOMContentLoaded", () => {
             durationText.innerText = formatTime(audioPlayer.duration);
         });
 
+        const playSVG = `<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+        const pauseSVG = `<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+
         // Click sul tasto Play/Pausa
         playBtn.addEventListener('click', () => {
             if (audioPlayer.paused) {
                 audioPlayer.play();
-                playBtn.innerText = "⏸"; // Cambia icona in Pausa
+                playBtn.innerHTML = pauseSVG; // Mette le due stanghette perfette
             } else {
                 audioPlayer.pause();
-                playBtn.innerText = "▶"; // Cambia icona in Play
+                playBtn.innerHTML = playSVG; // Rimette il triangolo
             }
         });
 

@@ -43,4 +43,48 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollTo(0, 0);
         });
     }
+    // --- LOGICA PLAYER AUDIO PERSONALIZZATO ---
+    const audioPlayer = document.getElementById('audio-player');
+    const playBtn = document.getElementById('play-btn');
+    const seekBar = document.getElementById('seek-bar');
+    const currentTimeText = document.getElementById('current-time');
+    const durationText = document.getElementById('duration');
+
+    if (audioPlayer && playBtn) {
+        // Funzione per formattare i secondi in M:SS
+        const formatTime = (time) => {
+            if (isNaN(time)) return "0:00";
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+            return `${minutes}:${seconds}`;
+        };
+
+        // Quando l'audio è pronto, imposta la durata
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            seekBar.max = audioPlayer.duration;
+            durationText.innerText = formatTime(audioPlayer.duration);
+        });
+
+        // Click sul tasto Play/Pausa
+        playBtn.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playBtn.innerText = "⏸"; // Cambia icona in Pausa
+            } else {
+                audioPlayer.pause();
+                playBtn.innerText = "▶"; // Cambia icona in Play
+            }
+        });
+
+        // Aggiorna la barra e i numeri mentre l'audio suona
+        audioPlayer.addEventListener('timeupdate', () => {
+            seekBar.value = audioPlayer.currentTime;
+            currentTimeText.innerText = formatTime(audioPlayer.currentTime);
+        });
+
+        // Sposta l'audio quando l'utente tocca la barra
+        seekBar.addEventListener('input', () => {
+            audioPlayer.currentTime = seekBar.value;
+        });
+    }
 });

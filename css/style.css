@@ -133,49 +133,52 @@ body, html {
     border-radius: 20px;
 }
 
-/* --- AUDIO PLAYER (Minimal) --- */
 /* --- PLAYER AUDIO PERSONALIZZATO --- */
 .custom-player {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 15px 20px; /* Un po' più stretto degli altri quadri bianchi */
+    padding: 15px; /* Spazio uniforme */
 }
 
 #play-btn {
-    width: 45px;
-    height: 45px;
-    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px; /* IL SEGRETO: Obbliga il bottone a non rimpicciolirsi o deformarsi mai */
     border-radius: 50%;
     background-color: #333;
     color: white;
     border: none;
-    font-size: 18px;
+    font-size: 22px; /* Triangolo un po' più grande e visibile */
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    padding: 0; 
 }
 
 .player-controlli {
-    flex-grow: 1;
+    flex: 1; /* Prende TUTTO lo spazio rimanente a destra */
+    min-width: 0; /* Evita che la barra sbordi fuori dal riquadro su schermi piccoli */
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    gap: 8px; /* Più respiro tra barra e numeri */
 }
 
 #seek-bar {
     width: 100%;
-    accent-color: #333; /* Colora la barra di grigio scuro/nero */
-    cursor: pointer;
+    margin: 0; /* Resetta i margini di base dei cellulari */
+    accent-color: #333; /* Colore della barra */
 }
 
 .time-display {
+    display: flex;
+    justify-content: space-between; /* Mette i minuti ai due lati opposti! */
     font-size: 0.85rem;
     color: #666;
-    text-align: right;
-    font-variant-numeric: tabular-nums; /* Evita che i numeri "ballino" */
+    font-variant-numeric: tabular-nums; /* I numeri non saltellano quando cambiano */
 }
 
 /* --- QUADRO BIANCO ARROTONDATO (Nuovo) --- */

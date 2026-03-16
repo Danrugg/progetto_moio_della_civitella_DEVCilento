@@ -1,0 +1,15 @@
+[
+  {
+    "id": "san-bartolomeo",
+    "titolo": "Chiesa di San Bartolomeo",
+    "sottotitolo": "La Chiesa Madre di Moio della Civitella",
+    "descrizione": "La Chiesa di San Bartolomeo Apostolo è il fulcro spirituale e storico di Moio della Civitella. Ristrutturata e ampliata nel corso dei secoli, essa presenta oggi affascinanti stratificazioni architettoniche che raccontano secoli di devozione.<br><br>All'interno si scorgono dipinti pregevoli e un altare maggiore ricco di eleganti dettagli. La chiesa sorge sull'antica piazza del paese, diventando da sempre il luogo d'incontro principale per la comunità. Nelle calde sere d'estate, la luce dorata del tramonto accarezza ed esalta la calda pietra calcarea del portico esterno, regalando un'atmosfera sospesa nel tempo e ricca di suggestione.",
+    "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    "immagini": [
+      "https://images.unsplash.com/photo-1548625361-ec85b3bc1c6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1577985043696-8bd54d9f093f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1589376672322-87063ccf7543?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "mappa_url": "https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  }
+]

@@ -3,50 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Percorso Storico QR</title>
+    <title>Moio della Civitella - Percorso Storico</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <section id="splash-screen" class="view active">
-        <div class="overlay"></div> <h1 id="splash-titolo">Caricamento...</h1>
-        <button id="btn-entra">ENTRA</button>
-    </section>
-
-    <section id="content-screen" class="view hidden">
-        <div class="content-overlay"></div>
-
-        <div class="scrolling-content">
-            <div id="carousel" class="carousel-container"></div>
-            
-            <div class="quadro-bianco custom-player">
-                <audio id="audio-player"></audio>
-                
-                <button id="play-btn">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-                
-                <div class="player-controlli">
-                    <input type="range" id="seek-bar" value="0" step="1">
-                    <div class="time-display">
-                        <span id="current-time">0:00</span>
-                        <span id="duration">0:00</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quadro-bianco historia-box">
-                <article id="storia-testo"></article>
-            </div>
-
-            <div class="quadro-bianco map-container">
-                <h3>Dove sei:</h3>
-                <img id="mappa-img" src="" alt="Mappa">
-            </div>
+    <!-- SPLASH SCREEN -->
+    <section id="splash-screen">
+        <div class="splash-overlay"></div>
+        <div class="splash-content">
+            <h1 id="splash-titolo">MOIO DELLA CIVITELLA</h1>
+            <div class="splash-spacer"></div>
+            <button id="btn-entra">ENTRA</button>
+            <div class="splash-spacer"></div>
         </div>
     </section>
 
-    <script src="js/data.js?v=2"></script>
-    <script src="js/app.js?v=2"></script>
+    <!-- CONTENT SCREEN -->
+    <main id="main-content">
+        <!-- CAROUSEL -->
+        <div class="carousel-wrapper animate-fade">
+            <div id="carousel" class="carousel">
+                <!-- Images will be injected here -->
+            </div>
+            <div id="carousel-dots" class="carousel-dots">
+                <!-- Dots will be injected here -->
+            </div>
+        </div>
+
+        <div class="container animate-fade">
+            <!-- AUDIO PLAYER -->
+            <div class="audio-player-container">
+                <div class="audio-header">ASCOLTA L'AUDIO: <span id="audio-title"></span></div>
+                <div class="player-controls">
+                    <button id="play-btn" class="play-pause-btn" aria-label="Play/Pausa">
+                        <svg id="play-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </button>
+                    <div class="progress-container">
+                        <input type="range" id="progress-bar" class="progress-bar" value="0" step="1" aria-label="Avanzamento audio">
+                        <div class="time-display">
+                            <span id="current-time">0:00</span>
+                            <span id="duration">0:00</span>
+                        </div>
+                    </div>
+                </div>
+                <audio id="audio-player" style="display:none;"></audio>
+            </div>
+
+            <!-- TESTO -->
+            <article class="text-content">
+                <h2 id="monument-title" class="monument-title"></h2>
+                <div id="monument-subtitle" class="monument-subtitle"></div>
+                <div id="monument-description" class="monument-description"></div>
+            </article>
+
+            <!-- MAPPA -->
+            <section id="map-section" class="map-section">
+                <img id="map-img" class="map-img" src="" alt="Mappa del luogo">
+                <div class="map-zoom-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </div>
+            </section>
+        </div>
+
+        <!-- ERROR MESSAGE -->
+        <div id="error-message">
+            <h2>Nessun Dato Trovato</h2>
+            <p>Il monumento richiesto non è presente nel nostro database.</p>
+        </div>
+    </main>
+
+    <!-- MAP MODAL -->
+    <div id="map-modal" class="map-modal">
+        <div id="modal-close" class="modal-close">&times;</div>
+        <img id="modal-map-img" src="" alt="Mappa ingrandita">
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

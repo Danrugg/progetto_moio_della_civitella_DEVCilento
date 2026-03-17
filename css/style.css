@@ -37,7 +37,7 @@ body.bg-splash {
 }
 
 body.bg-monument {
-  background-image: url("../assets/img/background_principal_page.avif");
+  background-image: url("../assets/img/yellow-brick-wall.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -110,23 +110,20 @@ h4 {
 }
 
 #btn-entra {
-  background-color: var(--color-text);
+  background-color: #4B3B2A;
   color: var(--color-bg);
-  border: 2px solid #4B3B2A;
+  border: none;
   padding: 1.2rem 3.5rem;
   border-radius: 50px;
-  /* Stile pillola */
+  /* Stile pillola piatto e minimale */
   font-size: 1.3rem;
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: 2px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: none;
   transition: transform 0.2s, background-color 0.2s;
-  background-image: url('../assets/img/sfondo_legno.avif');
-  background-size: cover;
-  background-position: center;
-  /* Texture legno */
+  background-image: none;
   margin-bottom: 2rem;
 }
 
@@ -215,16 +212,15 @@ h4 {
 
 /* LETTORE AUDIO */
 .audio-player-container {
+  background-color: var(--color-light);
   border-radius: 12px;
   padding: 1.2rem;
   margin-top: 1rem;
   margin-bottom: 2.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  border: 2px solid #4B3B2A;
-  background-image: url('../assets/img/sfondo_legno.avif');
-  background-size: cover;
-  background-position: center;
-  /* Pattern legno invecchiato */
+  box-shadow: none;
+  border: none;
+  background-image: none;
+  /* Design flat e minimalista senza bordi o ombre pesanti */
 }
 
 .audio-header {
@@ -336,8 +332,8 @@ h4 {
   margin-top: 2rem;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border: 4px solid var(--color-light);
+  box-shadow: none;
+  /* Design flat: rimosso bordo */
   cursor: pointer;
 }
 

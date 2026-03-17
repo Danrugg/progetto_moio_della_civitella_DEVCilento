@@ -2,6 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const monumentId = urlParams.get('p');
   
+    // Gestione sfondo dinamico in base al parametro ?p=
+    if (!monumentId || monumentId.trim() === '') {
+        document.body.classList.add('bg-splash');
+        document.body.classList.remove('bg-monument');
+    } else {
+        document.body.classList.add('bg-monument');
+        document.body.classList.remove('bg-splash');
+    }
+
     const splashScreen = document.getElementById('splash-screen');
     const mainContent = document.getElementById('main-content');
     const btnEntra = document.getElementById('btn-entra');
@@ -182,11 +191,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (monumentId) {
             const monument = data.find(item => item.id === monumentId);
             if(monument) {
+                document.body.classList.add('bg-monument');
+                document.body.classList.remove('bg-splash');
                 renderMonument(monument);
                 mainContent.classList.add('visible');
             } else {
                 // Caso di fallback quando l'id cercato non produce risultati ma esistono dati
                 if (data && data.length > 0) {
+                    document.body.classList.add('bg-monument');
+                    document.body.classList.remove('bg-splash');
                     renderMonument(data[0]); 
                     mainContent.classList.add('visible');
                 } else {
@@ -197,6 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else if (data && data.length > 0) {
           // Navigazione normale senza parametro porta al primo punto di interesse
+          document.body.classList.add('bg-monument');
+          document.body.classList.remove('bg-splash');
           renderMonument(data[0]); 
           mainContent.classList.add('visible');
         } else {

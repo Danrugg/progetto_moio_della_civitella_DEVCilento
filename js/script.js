@@ -160,22 +160,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     // Logica Modale Mappa
+    let panzoomInstance = null;
+
     function setupMapModal() {
       const mapSection = document.getElementById('map-section');
       const mapModal = document.getElementById('map-modal');
       const closeModal = document.getElementById('modal-close');
+      const modalImg = document.getElementById('modal-map-img');
   
+      // Inizializza Panzoom per il pinch-to-zoom (se la libreria è caricata)
+      if (typeof Panzoom !== 'undefined' && !panzoomInstance) {
+        panzoomInstance = Panzoom(modalImg, {
+          maxScale: 5,
+          minScale: 1,
+          contain: 'outside'
+        });
+        modalImg.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+      }
+
+      // Evita listener duplicati
+      if (mapSection.dataset.listenerSetup) return;
+      mapSection.dataset.listenerSetup = "true";
+
       mapSection.addEventListener('click', () => {
         mapModal.classList.add('active');
       });
   
       closeModal.addEventListener('click', () => {
         mapModal.classList.remove('active');
+        if (panzoomInstance) panzoomInstance.reset();
       });
   
       mapModal.addEventListener('click', (e) => {
         if (e.target === mapModal) {
           mapModal.classList.remove('active');
+          if (panzoomInstance) panzoomInstance.reset();
         }
       });
     }
